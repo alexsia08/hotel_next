@@ -1,0 +1,1 @@
+export { WhatsAppTwoToneIcon } from "./WhatsAppTwoToneIcon";

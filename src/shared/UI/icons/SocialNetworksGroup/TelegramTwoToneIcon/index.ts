@@ -1,0 +1,1 @@
+export { TelegramTwoToneIcon } from "./TelegramTwoToneIcon";
