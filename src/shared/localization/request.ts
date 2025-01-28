@@ -6,7 +6,8 @@ export default getRequestConfig(async () => {
   const locale = "ru";
 
   const messages = {
-    ...(await import(`./messages/${locale}/header.line.json`)).default,
+    ...(await import(`./messages/${locale}/home/header.line.json`)).default,
+    ...(await import(`./messages/${locale}/home/home.group.json`)).default,
   };
 
   return {

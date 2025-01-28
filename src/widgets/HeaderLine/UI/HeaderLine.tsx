@@ -17,8 +17,6 @@ import {
   constantSocialNetworkIcons,
 } from "../Library/constants/constantsSocialNetworksIcons";
 
-import TelegramIcon from "../../../shared/assets/SocailNetworkIcons/telegram.svg";
-
 const { Title, Paragraph } = Typography;
 
 import LogoImage from "../../../shared/assets/LogoImage.jpg";
