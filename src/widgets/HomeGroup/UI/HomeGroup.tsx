@@ -9,18 +9,18 @@ import {
   CSSTextOneHomeGroup,
   CSSTextTwoHomeGroup,
   CSSButtonNumber,
+  CSSTitleTwoHomeGroup,
+  CSSButtonUslugi,
 } from "./styles";
-import { Flex, DatePicker, Space, InputNumber, Carousel } from "antd";
+import { Flex, DatePicker, Space, InputNumber } from "antd";
 import type { GetProps } from "antd";
 import type { InputNumberProps } from "antd";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import fonHotel from "../../../shared/assets/fonHotel.svg";
 import Hotel from "../../../shared/assets/Hotel.svg";
-import NumberOne from "../../../shared/assets/NumberOne.svg";
-import NumberTwo from "../../../shared/assets/NumberTwo.svg";
-import NumberThree from "../../../shared/assets/NumberThree.svg";
-import NumberFour from "../../../shared/assets/HumberFour.svg";
+import { CarouselIMG } from "../Library/constants/constantsCarouselImage";
+import { UslugiHotel } from "../Library/constants/constantsUslugi";
 
 type RangePickerProps = GetProps<typeof DatePicker.RangePicker>;
 dayjs.extend(customParseFormat);
@@ -70,78 +70,6 @@ const GuestJSX = () => {
   );
 };
 
-const contentStyle: React.CSSProperties = {
-  margin: "40px 0px 0px 9px",
-  height: "265px",
-  width: "425px",
-  fontFamily: "Didot, serif",
-  fontSize: "20px",
-  textAlign: "center",
-};
-
-const CarouselJSX: React.FC = () => (
-  <Carousel
-    arrows
-    infinite={true}
-    autoplay={true}
-    slidesToShow={3}
-    dots={false}
-  >
-    <div>
-      <h3 style={contentStyle}>
-        <Image
-          src={NumberOne}
-          alt={"NumberOne"}
-          style={{
-            width: "425px",
-            height: "240px",
-          }}
-        />
-        Представительские апартаменты
-      </h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>
-        <Image
-          src={NumberTwo}
-          alt={"NumberTwo"}
-          style={{
-            width: "425px",
-            height: "240px",
-          }}
-        />
-        Апартаменты
-      </h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>
-        <Image
-          src={NumberThree}
-          alt={"NumberThree"}
-          style={{
-            width: "425px",
-            height: "240px",
-          }}
-        />
-        Семейный люкс с двумя спальнями
-      </h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>
-        <Image
-          src={NumberFour}
-          alt={"NumberFour"}
-          style={{
-            width: "425px",
-            height: "240px",
-          }}
-        />
-        Одноместный номер бизнес-класса
-      </h3>
-    </div>
-  </Carousel>
-);
-
 export const HomeGroup: React.FC = () => {
   const tHomeGroup = useTranslations(`home-group`);
 
@@ -182,7 +110,7 @@ export const HomeGroup: React.FC = () => {
                   margin: "30px 0px 0px 210px",
                 }}
               >
-                <CSSButton>Найти номер</CSSButton>
+                <CSSButton>{tHomeGroup("buttonSearch")}</CSSButton>
               </div>
             </div>
           </Flex>
@@ -190,8 +118,8 @@ export const HomeGroup: React.FC = () => {
       </div>
 
       <CSSBoundingContainer>
-        <CarouselJSX />
-        <CSSButtonNumber>Посмотреть все номера</CSSButtonNumber>
+        <CarouselIMG />
+        <CSSButtonNumber>{tHomeGroup("buttonNumber")}</CSSButtonNumber>
         <CSSTitleOneHomeGroup>{tHomeGroup("titleOne")}</CSSTitleOneHomeGroup>
         <Flex>
           <Image
@@ -211,6 +139,11 @@ export const HomeGroup: React.FC = () => {
             <CSSTextTwoHomeGroup>{tHomeGroup("textTwo")}</CSSTextTwoHomeGroup>
           </div>
         </Flex>
+        <CSSTitleTwoHomeGroup>{tHomeGroup("titleTwo")}</CSSTitleTwoHomeGroup>
+
+        <UslugiHotel />
+
+        <CSSButtonUslugi>{tHomeGroup("buttonUslugi")}</CSSButtonUslugi>
       </CSSBoundingContainer>
     </div>
   );
